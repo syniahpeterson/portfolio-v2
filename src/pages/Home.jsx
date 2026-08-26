@@ -1,19 +1,36 @@
+import Container from "../components/ui/Container";
+import Button from "../components/ui/Button";
+import Badge from "../components/ui/Badge";
+import SectionHeading from "../components/ui/SectionHeading";
+
 function Home() {
   return (
-    <section className="mx-auto max-w-[var(--container-width)] px-6 py-24">
-      <p className="mb-4 text-sm uppercase tracking-[0.2em] text-[var(--color-purple)]">
-        Web Developer & Web Specialist
-      </p>
+    <Container className="py-24">
+      <SectionHeading
+        number="01"
+        eyebrow="Selected Work"
+        title="Websites and applications I've built."
+        description="A selection of projects demonstrating web development, modernization, responsive design, accessibility, and more."
+      />
 
-      <h1 className="max-w-4xl text-5xl font-bold tracking-tight md:text-7xl">
-        Syniah Peterson
-      </h1>
+      <div className="mt-8 flex flex-wrap gap-4">
+        <Button to="/work">View My Work</Button>
 
-      <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-text-secondary)]">
-        I build, modernize, and improve responsive websites and web applications
-        with a focus on usability, accessibility, and clean, maintainable code.
-      </p>
-    </section>
+        <Button variant="secondary" to="/resume">
+          View Resume
+        </Button>
+
+        <Button variant="ghost" to="/contact">
+          Get In Touch →
+        </Button>
+      </div>
+
+      <div className="mt-8 flex flex-wrap gap-2">
+        <Badge>Client Project</Badge>
+        <Badge>React</Badge>
+        <Badge>Responsive</Badge>
+      </div>
+    </Container>
   );
 }
 
