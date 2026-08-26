@@ -1,31 +1,113 @@
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import navigation from "../../data/navigation";
+import Button from "../ui/Button";
+import Container from "../ui/Container";
+import MobileMenu from "./MobileMenu";
 
 function Navbar() {
-  return (
-    <header className="border-b border-[var(--color-border)]">
-      <div className="mx-auto flex max-w-[var(--container-width)] items-center justify-between px-6 py-5">
-        <NavLink to="/" className="font-semibold text-[var(--color-text)]">
-          Syniah Peterson
-        </NavLink>
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-        <nav aria-label="Primary navigation">
-          <ul className="flex items-center gap-8">
-            {navigation.map((item) => (
-              <li key={item.href}>
-                <NavLink
-                  to={item.href}
-                  className="text-[var(--color-text-secondary)]"
-                >
-                  {item.label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
+  useEffect(() => {
+    function handleScroll() {
+      setIsScrolled(window.scrollY > 20);
+    }
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
+  return (
+    <>
+      <header
+        className={`sticky top-0 z-40 border-b border-[var(--color-border)] transition-colors duration-200 ${
+          isScrolled
+            ? "bg-[rgba(10,10,11,0.88)] backdrop-blur-md"
+            : "bg-[var(--color-background)]"
+        }`}
+      >
+        <Container className="flex h-20 items-center justify-between">
+          <NavLink
+            to="/"
+            className="text-base font-semibold tracking-tight text-[var(--color-text)] transition-colors hover:text-[var(--color-purple-hover)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-purple)]"
+          >
+            Syniah Peterson
+          </NavLink>
+
+          <div className="hidden items-center gap-8 lg:flex">
+            <nav aria-label="Primary navigation">
+              <ul className="flex items-center gap-8">
+                {navigation.map((item) => (
+                  <li key={item.href}>
+                    <NavLink
+                      to={item.href}
+                      className={({ isActive }) =>
+                        `relative py-2 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-purple)] ${
+                          isActive
+                            ? "text-[var(--color-text)]"
+                            : "text-[var(--color-text-secondary)] hover:text-[var(--color-text)]"
+                        }`
+                      }
+                    >
+                      {({ isActive }) => (
+                        <>
+                          {item.label}
+
+                          {isActive && (
+                            <span
+                              aria-hidden="true"
+                              className="absolute -bottom-1 left-0 h-0.5 w-full rounded-full bg-[var(--color-purple)]"
+                            />
+                          )}
+                        </>
+                      )}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <Button to="/contact">Let's Talk</Button>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen(true)}
+            aria-label="Open navigation menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
+            className="flex h-11 w-11 items-center justify-center rounded-[var(--radius-sm)] text-[var(--color-text)] transition-colors hover:bg-[var(--color-surface)] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--color-purple)] lg:hidden"
+          >
+            <span className="sr-only">Open navigation menu</span>
+
+            <span aria-hidden="true" className="flex flex-col gap-1.5">
+              <span className="h-0.5 w-5 bg-current" />
+              <span className="h-0.5 w-5 bg-current" />
+              <span className="h-0.5 w-5 bg-current" />
+            </span>
+          </button>
+        </Container>
+      </header>
+
+      <div id="mobile-navigation">
+        <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
       </div>
-    </header>
+    </>
   );
 }
 
