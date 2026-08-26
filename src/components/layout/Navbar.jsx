@@ -1,36 +1,27 @@
+import { NavLink } from "react-router-dom";
+
+import navigation from "../../data/navigation";
+
 function Navbar() {
   return (
     <header className="border-b border-[var(--color-border)]">
       <div className="mx-auto flex max-w-[var(--container-width)] items-center justify-between px-6 py-5">
-        <a href="/" className="font-semibold text-[var(--color-text)]">
+        <NavLink to="/" className="font-semibold text-[var(--color-text)]">
           Syniah Peterson
-        </a>
+        </NavLink>
 
         <nav aria-label="Primary navigation">
           <ul className="flex items-center gap-8">
-            <li>
-              <a href="/" className="text-[var(--color-text-secondary)]">
-                Work
-              </a>
-            </li>
-
-            <li>
-              <a href="/" className="text-[var(--color-text-secondary)]">
-                About
-              </a>
-            </li>
-
-            <li>
-              <a href="/" className="text-[var(--color-text-secondary)]">
-                Resume
-              </a>
-            </li>
-
-            <li>
-              <a href="/" className="text-[var(--color-text-secondary)]">
-                Contact
-              </a>
-            </li>
+            {navigation.map((item) => (
+              <li key={item.href}>
+                <NavLink
+                  to={item.href}
+                  className="text-[var(--color-text-secondary)]"
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
