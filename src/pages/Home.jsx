@@ -1,36 +1,19 @@
-import Container from "../components/ui/Container";
-import Button from "../components/ui/Button";
-import Badge from "../components/ui/Badge";
-import SectionHeading from "../components/ui/SectionHeading";
+import Hero from "../sections/Hero";
 
 function Home() {
   return (
-    <Container className="py-24">
-      <SectionHeading
-        number="01"
-        eyebrow="Selected Work"
-        title="Websites and applications I've built."
-        description="A selection of projects demonstrating web development, modernization, responsive design, accessibility, and more."
-      />
+    <>
+      <Hero />
 
-      <div className="mt-8 flex flex-wrap gap-4">
-        <Button to="/work">View My Work</Button>
-
-        <Button variant="secondary" to="/resume">
-          View Resume
-        </Button>
-
-        <Button variant="ghost" to="/contact">
-          Get In Touch →
-        </Button>
-      </div>
-
-      <div className="mt-8 flex flex-wrap gap-2">
-        <Badge>Client Project</Badge>
-        <Badge>React</Badge>
-        <Badge>Responsive</Badge>
-      </div>
-    </Container>
+      <section
+        id="what-i-do"
+        className="min-h-screen border-t border-[var(--color-border)]"
+      >
+        <div className="mx-auto max-w-[var(--container-width)] px-6 py-24">
+          <h2 className="text-4xl font-bold">What I Do</h2>
+        </div>
+      </section>
+    </>
   );
 }
 
