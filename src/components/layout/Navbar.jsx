@@ -57,10 +57,10 @@ function Navbar() {
                     <NavLink
                       to={item.href}
                       className={({ isActive }) =>
-                        `relative py-2 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-purple)] ${
+                        `relative py-2 text-sm font-medium transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-purple)] ${
                           isActive
                             ? "text-[var(--color-text)]"
-                            : "text-[var(--color-text-secondary)] hover:text-[var(--color-text)]"
+                            : "text-[var(--color-text-secondary)] hover:text-[var(--color-purple-hover)]"
                         }`
                       }
                     >
@@ -91,7 +91,9 @@ function Navbar() {
             aria-label="Open navigation menu"
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
-            className="flex h-11 w-11 items-center justify-center rounded-[var(--radius-sm)] text-[var(--color-text)] transition-colors hover:bg-[var(--color-surface)] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--color-purple)] lg:hidden"
+            className={`flex h-11 w-11 items-center justify-center rounded-[var(--radius-sm)] text-[var(--color-text)] transition-colors duration-200 hover:bg-[var(--color-surface)] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--color-purple)] lg:hidden ${
+              isMenuOpen ? "bg-[var(--color-surface)]" : ""
+            }`}
           >
             <span className="sr-only">Open navigation menu</span>
 

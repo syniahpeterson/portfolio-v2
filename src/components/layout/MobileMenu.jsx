@@ -1,12 +1,17 @@
+import { useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 
 import navigation from "../../data/navigation";
 import Button from "../ui/Button";
 
 function MobileMenu({ isOpen, onClose }) {
-  if (!isOpen) {
-    return null;
-  }
+  const closeButtonRef = useRef(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      closeButtonRef.current?.focus();
+    }
+  }, [isOpen]);
 
   return (
     <div className="fixed inset-0 z-50 bg-[var(--color-background)] lg:hidden">
@@ -17,6 +22,7 @@ function MobileMenu({ isOpen, onClose }) {
           </span>
 
           <button
+            ref={closeButtonRef}
             type="button"
             onClick={onClose}
             aria-label="Close navigation menu"
