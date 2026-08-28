@@ -14,6 +14,9 @@ function ProjectCard({ project, featured = false }) {
     technologies,
     liveUrl,
     githubUrl,
+    image,
+    imageAlt,
+    mobileImage,
   } = project;
 
   const statusLabels = {
@@ -29,17 +32,33 @@ function ProjectCard({ project, featured = false }) {
         featured ? "lg:col-span-2" : ""
       }`}
     >
-      {/* Project image placeholder */}
+      {/* Project image */}
       <div
         className={`relative overflow-hidden border-b border-[var(--color-border)] bg-[var(--color-background-alt)] ${
           featured ? "aspect-[16/8]" : "aspect-[16/10]"
         }`}
       >
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="font-mono text-xs uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
-            Project Preview
-          </span>
-        </div>
+        {image ? (
+          <picture>
+            {mobileImage && (
+              <source media="(max-width: 767px)" srcSet={mobileImage} />
+            )}
+
+            <img
+              src={image}
+              alt={imageAlt}
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+            />
+          </picture>
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="font-mono text-xs uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
+              Project Preview
+            </span>
+          </div>
+        )}
 
         <div
           aria-hidden="true"

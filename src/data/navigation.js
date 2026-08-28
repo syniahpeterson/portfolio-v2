@@ -1,5 +1,9 @@
 const navigation = [
   {
+    label: "Home",
+    href: "/"
+  },
+  {
     label: "Work",
     href: "/work",
   },

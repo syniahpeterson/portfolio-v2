@@ -1,3 +1,21 @@
+import allConstructionDesktop from "../assets/projects/all-construction-services/desktop.webp";
+import allConstructionMobile from "../assets/projects/all-construction-services/mobile.webp";
+
+import allConstructionBeforeDesktop from "../assets/projects/all-construction-services/before-desktop.webp";
+import allConstructionBeforeMobile from "../assets/projects/all-construction-services/before-mobile.webp";
+
+import secondRunDesktop from "../assets/projects/second-run-logistics/desktop.webp";
+import secondRunMobile from "../assets/projects/second-run-logistics/mobile.webp";
+
+import pieZanosDesktop from "../assets/projects/pie-zanos-pizza/desktop.webp";
+import pieZanosMobile from "../assets/projects/pie-zanos-pizza/mobile.webp";
+
+import pieZanosBeforeDesktop from "../assets/projects/pie-zanos-pizza/before-desktop.webp";
+import pieZanosBeforeMobile from "../assets/projects/pie-zanos-pizza/before-mobile.webp";
+
+import nicholeBeautyDesktop from "../assets/projects/nichole-beauty-co/desktop.webp";
+import nicholeBeautyMobile from "../assets/projects/nichole-beauty-co/mobile.webp";
+
 const projects = [
   {
     id: "all-construction-services",
@@ -9,15 +27,43 @@ const projects = [
     featured: true,
 
     description:
-      "Modernized an outdated construction website with a focus on usability, accessibility, SEO, responsive design, and lead generation.",
+      "Modernized an existing construction company website with a focus on usability, accessibility, SEO, responsive design, and lead generation.",
 
     role: "Freelance Web Developer",
-    timeline: "June 2026 – August 2026",
+    timeline: "June 2026 - August 2026",
 
     technologies: ["React", "Tailwind CSS", "Resend", "Vercel"],
 
-    liveUrl: "",
-    githubUrl: "",
+    image: allConstructionDesktop,
+    imageAlt:
+      "All Construction Services website redesigned and displayed on a desktop screen",
+
+    mobileImage: allConstructionMobile,
+    mobileImageAlt:
+      "All Construction Services website redesigned and displayed on a mobile screen",
+
+    before: {
+      desktop: allConstructionBeforeDesktop,
+      desktopAlt:
+        "Original All Construction Services website displayed on desktop",
+
+      mobile: allConstructionBeforeMobile,
+      mobileAlt:
+        "Original All Construction Services website displayed on mobile",
+    },
+
+    after: {
+      desktop: allConstructionDesktop,
+      desktopAlt:
+        "Redesigned All Construction Services website displayed on desktop",
+
+      mobile: allConstructionMobile,
+      mobileAlt:
+        "Redesigned All Construction Services website displayed on mobile",
+    },
+
+    liveUrl: "https://www.allconstructionsvs.com/",
+    githubUrl: "https://github.com/syniahpeterson/ACS",
 
     caseStudy: true,
   },
@@ -35,12 +81,18 @@ const projects = [
       "Built a logistics company website from scratch, including visual identity, responsive design, accessibility, SEO, contact functionality, and deployment.",
 
     role: "Freelance Web Developer",
-    timeline: "August 2023 – September 2025",
+    timeline: "August 2023 - September 2025",
 
     technologies: ["React", "EmailJS", "GitHub Pages"],
 
-    liveUrl: "",
-    githubUrl: "",
+    image: secondRunDesktop,
+    imageAlt: "Second Run Logistics website displayed on a desktop screen",
+
+    mobileImage: secondRunMobile,
+    mobileImageAlt: "Second Run Logistics website displayed on a mobile screen",
+
+    liveUrl: "https://secondrunlogistics.com/",
+    githubUrl: "https://github.com/syniahpeterson/SecondRunLogistics",
 
     caseStudy: true,
   },
@@ -58,12 +110,40 @@ const projects = [
       "A website modernization concept for a local pizza restaurant using a modern dark design, React, Sanity CMS, and Resend.",
 
     role: "Web Developer",
-    timeline: "",
+    timeline: "July 2026 - August 2026",
 
     technologies: ["React", "Sanity", "Resend", "Vercel"],
 
-    liveUrl: "",
-    githubUrl: "",
+    image: pieZanosDesktop,
+    imageAlt:
+      "Redesigned Pie-Zano's Pizza website concept displayed on a desktop screen",
+
+    mobileImage: pieZanosMobile,
+    mobileImageAlt:
+      "Redesigned Pie-Zano's Pizza website concept displayed on a mobile screen",
+
+    before: {
+      desktop: pieZanosBeforeDesktop,
+      desktopAlt:
+        "Original Pie-Zano's Pizza website displayed on a desktop screen",
+
+      mobile: pieZanosBeforeMobile,
+      mobileAlt:
+        "Original Pie-Zano's Pizza website displayed on a mobile screen",
+    },
+
+    after: {
+      desktop: pieZanosDesktop,
+      desktopAlt:
+        "Redesigned Pie-Zano's Pizza website displayed on a desktop screen",
+
+      mobile: pieZanosMobile,
+      mobileAlt:
+        "Redesigned Pie-Zano's Pizza website displayed on a mobile screen",
+    },
+
+    liveUrl: "https://pie-zanos-pizza.vercel.app/",
+    githubUrl: "https://github.com/syniahpeterson/Pie-Zanos-Pizza",
 
     caseStudy: true,
   },
@@ -81,12 +161,12 @@ const projects = [
       "A modernization project focused on reducing visual clutter, improving content hierarchy, responsiveness, and usability.",
 
     role: "Web Developer",
-    timeline: "",
+    timeline: "June 2026",
 
     technologies: ["React"],
 
-    liveUrl: "",
-    githubUrl: "",
+    liveUrl: "https://bless-bunny-rabbitry.vercel.app/",
+    githubUrl: "https://github.com/syniahpeterson/Bless-Bunny-Rabbitry",
 
     caseStudy: true,
   },
@@ -104,12 +184,12 @@ const projects = [
       "A React application demonstrating API integration, search, debouncing, custom hooks, state management, filtering, ratings, watch status, and localStorage.",
 
     role: "Frontend Developer",
-    timeline: "",
+    timeline: "April 2026",
 
     technologies: ["React", "JavaScript", "OMDb API"],
 
-    liveUrl: "",
-    githubUrl: "",
+    liveUrl: "https://movie-watchlist-app-opal-one.vercel.app/",
+    githubUrl: "https://github.com/syniahpeterson/movie-watchlist-app",
 
     caseStudy: false,
   },
@@ -127,37 +207,52 @@ const projects = [
       "A React application demonstrating API integration, reusable hooks, multi-step data fetching, filtering, and responsive interface states.",
 
     role: "Frontend Developer",
-    timeline: "",
+    timeline: "April 2026",
 
     technologies: ["React", "JavaScript", "CoinGecko API"],
 
-    liveUrl: "",
-    githubUrl: "",
+    liveUrl: "https://crypto-price-tracker-kappa-rose.vercel.app/",
+    githubUrl: "https://github.com/syniahpeterson/crypto-price-tracker",
 
     caseStudy: false,
   },
 
   {
-    id: "notes-app",
-    slug: "notes-app",
-    title: "Notes App",
-    type: "React Application",
+    id: "nichole-beauty-co",
+    slug: "nichole-beauty-co",
+    title: "Nichole's Beauty Co.",
+    type: "E-Commerce Web Application",
     category: "application",
     status: "personal",
     featured: false,
 
     description:
-      "A React application demonstrating state management, controlled inputs, reusable components, filtering, toggling, deleting, and derived statistics.",
+      "A full-featured e-commerce frontend built with React and Redux Toolkit featuring dynamic product browsing, URL-based category filtering, persistent cart state, and a Stripe hosted checkout flow.",
 
     role: "Frontend Developer",
-    timeline: "",
+    timeline: "April 2026",
 
-    technologies: ["React", "JavaScript"],
+    technologies: [
+      "React",
+      "Redux Toolkit",
+      "React Router",
+      "JavaScript",
+      "CSS",
+      "Stripe",
+    ],
 
-    liveUrl: "",
-    githubUrl: "",
+    image: nicholeBeautyDesktop,
+    imageAlt:
+      "Nichole's Beauty Co. e-commerce website displayed on a desktop screen",
 
-    caseStudy: false,
+    mobileImage: nicholeBeautyMobile,
+    mobileImageAlt:
+      "Nichole's Beauty Co. e-commerce website displayed on a mobile screen",
+
+    liveUrl: "https://nichole-beauty-co.vercel.app",
+    githubUrl: "https://github.com/syniahpeterson/Nichole-Beauty-Co",
+
+    caseStudy: true,
   },
 ];
 
