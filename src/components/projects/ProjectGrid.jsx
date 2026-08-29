@@ -1,13 +1,13 @@
 import ProjectCard from "./ProjectCard";
 
-function ProjectGrid({ projects }) {
+function ProjectGrid({ projects, featuredFirst = false }) {
   return (
     <div className="grid gap-5 md:grid-cols-2">
       {projects.map((project, index) => (
         <ProjectCard
           key={project.id}
           project={project}
-          featured={index === 0}
+          featured={featuredFirst && index === 0}
         />
       ))}
     </div>

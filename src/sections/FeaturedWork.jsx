@@ -34,7 +34,7 @@ function FeaturedWork() {
         </div>
 
         <div className="mt-14">
-          <ProjectGrid projects={featuredProjects} />
+          <ProjectGrid projects={featuredProjects} featuredFirst />
         </div>
       </Container>
     </section>

@@ -13,6 +13,18 @@ import pieZanosMobile from "../assets/projects/pie-zanos-pizza/mobile.webp";
 import pieZanosBeforeDesktop from "../assets/projects/pie-zanos-pizza/before-desktop.webp";
 import pieZanosBeforeMobile from "../assets/projects/pie-zanos-pizza/before-mobile.webp";
 
+import blessBunnyDesktop from "../assets/projects/bless-bunny-rabbitry/desktop.webp";
+import blessBunnyMobile from "../assets/projects/bless-bunny-rabbitry/mobile.webp";
+
+import blessBunnyBeforeDesktop from "../assets/projects/bless-bunny-rabbitry/before-desktop.webp";
+import blessBunnyBeforeMobile from "../assets/projects/bless-bunny-rabbitry/before-mobile.webp";
+
+import movieWatchlistDesktop from "../assets/projects/movie-watchlist/desktop.webp";
+import movieWatchlistMobile from "../assets/projects/movie-watchlist/mobile.webp";
+
+import cryptoPriceTrackerDesktop from "../assets/projects/crypto-price-tracker/desktop.webp";
+import cryptoPriceTrackerMobile from "../assets/projects/crypto-price-tracker/mobile.webp";
+
 import nicholeBeautyDesktop from "../assets/projects/nichole-beauty-co/desktop.webp";
 import nicholeBeautyMobile from "../assets/projects/nichole-beauty-co/mobile.webp";
 
@@ -165,6 +177,31 @@ const projects = [
 
     technologies: ["React"],
 
+    image: blessBunnyDesktop,
+    imageAlt:
+      "Bless Bunny Rabbitry website modernization displayed on a desktop screen",
+
+    mobileImage: blessBunnyMobile,
+    mobileImageAlt:
+      "Bless Bunny Rabbitry website modernization displayed on a mobile screen",
+
+    before: {
+      desktop: blessBunnyBeforeDesktop,
+      desktopAlt: "Original Bless Bunny Rabbitry website displayed on desktop",
+
+      mobile: blessBunnyBeforeMobile,
+      mobileAlt: "Original Bless Bunny Rabbitry website displayed on mobile",
+    },
+
+    after: {
+      desktop: blessBunnyDesktop,
+      desktopAlt:
+        "Modernized Bless Bunny Rabbitry website displayed on desktop",
+
+      mobile: blessBunnyMobile,
+      mobileAlt: "Modernized Bless Bunny Rabbitry website displayed on mobile",
+    },
+
     liveUrl: "https://bless-bunny-rabbitry.vercel.app/",
     githubUrl: "https://github.com/syniahpeterson/Bless-Bunny-Rabbitry",
 
@@ -188,6 +225,13 @@ const projects = [
 
     technologies: ["React", "JavaScript", "OMDb API"],
 
+    image: movieWatchlistDesktop,
+    imageAlt: "Movie Watchlist web application displayed on a desktop screen",
+
+    mobileImage: movieWatchlistMobile,
+    mobileImageAlt:
+      "Movie Watchlist web application displayed on a mobile screen",
+
     liveUrl: "https://movie-watchlist-app-opal-one.vercel.app/",
     githubUrl: "https://github.com/syniahpeterson/movie-watchlist-app",
 
@@ -210,6 +254,14 @@ const projects = [
     timeline: "April 2026",
 
     technologies: ["React", "JavaScript", "CoinGecko API"],
+
+    image: cryptoPriceTrackerDesktop,
+    imageAlt:
+      "Crypto Price Tracker web application displayed on a desktop screen",
+
+    mobileImage: cryptoPriceTrackerMobile,
+    mobileImageAlt:
+      "Crypto Price Tracker web application displayed on a mobile screen",
 
     liveUrl: "https://crypto-price-tracker-kappa-rose.vercel.app/",
     githubUrl: "https://github.com/syniahpeterson/crypto-price-tracker",
