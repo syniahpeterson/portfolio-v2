@@ -19,6 +19,8 @@ function ProjectCard({ project, featured = false }) {
     mobileImage,
   } = project;
 
+  const hasCaseStudy = Boolean(project.caseStudy);
+
   const statusLabels = {
     "completed-client": "Client Project",
     concept: "Concept Project",
@@ -91,17 +93,19 @@ function ProjectCard({ project, featured = false }) {
         </div>
 
         <div className="mt-7 flex flex-wrap items-center gap-5">
-          <Link
-            to={`/work/${slug}`}
-            className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-text)] transition-colors hover:text-[var(--color-purple-hover)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-purple)]"
-          >
-            {project.caseStudy ? "View Case Study" : "View Project"}
-            <ArrowUpRight
-              size={16}
-              aria-hidden="true"
-              className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            />
-          </Link>
+          {hasCaseStudy && (
+            <Link
+              to={`/work/${slug}`}
+              className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-text)] transition-colors hover:text-[var(--color-purple-hover)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-purple)]"
+            >
+              View Case Study
+              <ArrowUpRight
+                size={16}
+                aria-hidden="true"
+                className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
+            </Link>
+          )}
 
           {liveUrl && (
             <a
