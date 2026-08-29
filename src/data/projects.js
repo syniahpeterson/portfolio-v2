@@ -127,16 +127,13 @@ const projects = [
     technologies: ["React", "EmailJS", "GitHub Pages"],
 
     image: secondRunDesktop,
-    imageAlt:
-      "Second Run Logistics website displayed on a desktop screen",
+    imageAlt: "Second Run Logistics website displayed on a desktop screen",
 
     mobileImage: secondRunMobile,
-    mobileImageAlt:
-      "Second Run Logistics website displayed on a mobile screen",
+    mobileImageAlt: "Second Run Logistics website displayed on a mobile screen",
 
     liveUrl: "https://secondrunlogistics.com/",
-    githubUrl:
-      "https://github.com/syniahpeterson/SecondRunLogistics",
+    githubUrl: "https://github.com/syniahpeterson/SecondRunLogistics",
 
     caseStudy: {
       overview:
@@ -199,8 +196,7 @@ const projects = [
       "Redesigned Pie-Zano's Pizza website concept displayed on a mobile screen",
 
     liveUrl: "https://pie-zanos-pizza.vercel.app/",
-    githubUrl:
-      "https://github.com/syniahpeterson/Pie-Zanos-Pizza",
+    githubUrl: "https://github.com/syniahpeterson/Pie-Zanos-Pizza",
 
     caseStudy: {
       overview:
@@ -280,8 +276,7 @@ const projects = [
       "Bless Bunny Rabbitry website modernization displayed on a mobile screen",
 
     liveUrl: "https://bless-bunny-rabbitry.vercel.app/",
-    githubUrl:
-      "https://github.com/syniahpeterson/Bless-Bunny-Rabbitry",
+    githubUrl: "https://github.com/syniahpeterson/Bless-Bunny-Rabbitry",
 
     caseStudy: {
       overview:
@@ -313,8 +308,7 @@ const projects = [
           "Original Bless Bunny Rabbitry website displayed on desktop",
 
         mobile: blessBunnyBeforeMobile,
-        mobileAlt:
-          "Original Bless Bunny Rabbitry website displayed on mobile",
+        mobileAlt: "Original Bless Bunny Rabbitry website displayed on mobile",
       },
 
       after: {
@@ -352,19 +346,16 @@ const projects = [
     technologies: ["React", "JavaScript", "OMDb API"],
 
     image: movieWatchlistDesktop,
-    imageAlt:
-      "Movie Watchlist web application displayed on a desktop screen",
+    imageAlt: "Movie Watchlist web application displayed on a desktop screen",
 
     mobileImage: movieWatchlistMobile,
     mobileImageAlt:
       "Movie Watchlist web application displayed on a mobile screen",
 
-    liveUrl:
-      "https://movie-watchlist-app-opal-one.vercel.app/",
-    githubUrl:
-      "https://github.com/syniahpeterson/movie-watchlist-app",
+    liveUrl: "https://movie-watchlist-app-opal-one.vercel.app/",
+    githubUrl: "https://github.com/syniahpeterson/movie-watchlist-app",
 
-    caseStudy: null,
+    caseStudy: true,
 
     previousProject: "bless-bunny-rabbitry",
     nextProject: "crypto-price-tracker",
@@ -395,12 +386,10 @@ const projects = [
     mobileImageAlt:
       "Crypto Price Tracker web application displayed on a mobile screen",
 
-    liveUrl:
-      "https://crypto-price-tracker-kappa-rose.vercel.app/",
-    githubUrl:
-      "https://github.com/syniahpeterson/crypto-price-tracker",
+    liveUrl: "https://crypto-price-tracker-kappa-rose.vercel.app/",
+    githubUrl: "https://github.com/syniahpeterson/crypto-price-tracker",
 
-    caseStudy: null,
+    caseStudy: true,
 
     previousProject: "movie-watchlist",
     nextProject: "nichole-beauty-co",
@@ -439,8 +428,7 @@ const projects = [
       "Nichole's Beauty Co. e-commerce website displayed on a mobile screen",
 
     liveUrl: "https://nichole-beauty-co.vercel.app",
-    githubUrl:
-      "https://github.com/syniahpeterson/Nichole-Beauty-Co",
+    githubUrl: "https://github.com/syniahpeterson/Nichole-Beauty-Co",
 
     caseStudy: {
       overview:

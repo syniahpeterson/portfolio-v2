@@ -4,7 +4,40 @@ function BeforeAfter({ project }) {
   const { before, after } = project.caseStudy;
 
   if (!before || !after) {
-    return null;
+    if (!project.image || !project.mobileImage) {
+      return null;
+    }
+
+    return (
+      <section className="border-y border-[var(--color-border)] bg-[var(--color-background-alt)]">
+        <Container className="py-20 sm:py-24 lg:py-28">
+          <div className="max-w-3xl">
+            <p className="font-mono text-xs uppercase tracking-[0.16em] text-[var(--color-purple)]">
+              Project preview
+            </p>
+
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--color-text)] sm:text-4xl">
+              Desktop and mobile views.
+            </h2>
+          </div>
+
+          <div className="mt-14 grid gap-5 lg:grid-cols-2">
+            <ComparisonImage
+              label="Desktop"
+              image={project.image}
+              alt={project.imageAlt}
+            />
+
+            <ComparisonImage
+              label="Mobile"
+              image={project.mobileImage}
+              alt={project.mobileImageAlt}
+              mobile
+            />
+          </div>
+        </Container>
+      </section>
+    );
   }
 
   return (
