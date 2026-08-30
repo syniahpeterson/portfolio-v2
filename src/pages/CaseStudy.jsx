@@ -89,10 +89,6 @@ function CaseStudy() {
         <p>{caseStudy.solution}</p>
       </CaseStudySection>
 
-      <CaseStudySection eyebrow="03 / Solution" title="The result">
-        <p>{caseStudy.solution}</p>
-      </CaseStudySection>
-
       <CaseStudyGallery gallery={caseStudy.gallery} />
 
       <BeforeAfter project={project} />

@@ -13,6 +13,10 @@ function MobileMenu({ isOpen, onClose }) {
     }
   }, [isOpen]);
 
+  if (!isOpen) {
+    return null;
+  }
+
   return (
     <div className="fixed inset-0 z-50 bg-[var(--color-background)] lg:hidden">
       <div className="flex min-h-full flex-col">
