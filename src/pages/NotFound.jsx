@@ -1,6 +1,6 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 
+import Button from "../components/ui/Button";
 import Container from "../components/ui/Container";
 
 function NotFound() {
@@ -29,21 +29,15 @@ function NotFound() {
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <Link
-              to="/"
-              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-sm)] bg-[var(--color-purple-button)] px-5 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-[var(--color-purple-button-hover)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-purple)]"
-            >
+            <Button to="/">
               <ArrowLeft size={16} aria-hidden="true" />
               Back Home
-            </Link>
+            </Button>
 
-            <Link
-              to="/work"
-              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-sm)] border border-[var(--color-border)] px-5 py-3 text-sm font-medium text-[var(--color-text)] transition-colors duration-200 hover:border-[var(--color-purple)] hover:text-[var(--color-purple-hover)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-purple)]"
-            >
+            <Button to="/work" variant="outline">
               View My Work
               <ArrowRight size={16} aria-hidden="true" />
-            </Link>
+            </Button>
           </div>
         </div>
       </Container>

@@ -1,8 +1,8 @@
 import { ArrowRight, Check, GraduationCap } from "lucide-react";
-import { Link } from "react-router-dom";
 
 import about from "../data/about";
 
+import Button from "../components/ui/Button";
 import Container from "../components/ui/Container";
 import SectionHeading from "../components/ui/SectionHeading";
 
@@ -226,13 +226,10 @@ function About() {
               </p>
             </div>
 
-            <Link
-              to="/contact"
-              className="inline-flex shrink-0 items-center gap-2 rounded-[var(--radius-sm)] bg-[var(--color-purple-button)] px-5 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-[var(--color-purple-button-hover)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-purple)]"
-            >
+            <Button to="/contact" className="shrink-0">
               Get in Touch
               <ArrowRight size={16} aria-hidden="true" />
-            </Link>
+            </Button>
           </div>
         </Container>
       </section>

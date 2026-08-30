@@ -1,8 +1,8 @@
 import { ArrowDownToLine, ArrowRight, Check } from "lucide-react";
-import { Link } from "react-router-dom";
 
 import resume from "../data/resume";
 
+import Button from "../components/ui/Button";
 import Container from "../components/ui/Container";
 import SectionHeading from "../components/ui/SectionHeading";
 
@@ -27,14 +27,15 @@ function Resume() {
               </p>
             </div>
 
-            <a
+            <Button
               href="/Syniah-Peterson-Resume.pdf"
               download
-              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-[var(--radius-sm)] border border-[var(--color-border)] px-5 py-3 text-sm font-medium text-[var(--color-text)] transition-colors duration-200 hover:border-[var(--color-purple)] hover:text-[var(--color-purple-hover)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-purple)]"
+              variant="outline"
+              className="shrink-0"
             >
               <ArrowDownToLine size={16} aria-hidden="true" />
               Download Resume
-            </a>
+            </Button>
           </div>
         </Container>
       </section>
@@ -259,13 +260,10 @@ function Resume() {
               </h2>
             </div>
 
-            <Link
-              to="/contact"
-              className="inline-flex shrink-0 items-center gap-2 rounded-[var(--radius-sm)] bg-[var(--color-purple-button)] px-5 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-[var(--color-purple-button-hover)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-purple)]"
-            >
+            <Button to="/contact" className="shrink-0">
               Get in Touch
               <ArrowRight size={16} aria-hidden="true" />
-            </Link>
+            </Button>
           </div>
         </Container>
       </section>

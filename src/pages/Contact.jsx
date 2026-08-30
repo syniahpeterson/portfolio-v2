@@ -3,6 +3,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useState } from "react";
 import contact from "../data/contact";
 
+import Button from "../components/ui/Button";
 import Container from "../components/ui/Container";
 import SectionHeading from "../components/ui/SectionHeading";
 
@@ -96,93 +97,29 @@ function Contact() {
               />
 
               <div className="mt-10 space-y-4">
-                <a
+                <ContactLinkCard
                   href={`mailto:${contact.email}`}
-                  className="group flex items-center gap-4 border border-[var(--color-border)] bg-[var(--color-surface)] p-5 transition-colors duration-200 hover:border-[var(--color-purple)]"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-purple)]/10 text-[var(--color-purple-soft)]"
-                  >
-                    <Mail size={18} />
-                  </span>
+                  icon={<Mail size={18} />}
+                  label="Email"
+                  value={contact.email}
+                  valueClassName="break-all"
+                />
 
-                  <span className="min-w-0 flex-1">
-                    <span className="block text-xs uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
-                      Email
-                    </span>
-
-                    <span className="mt-1 block break-all text-sm text-[var(--color-text)]">
-                      {contact.email}
-                    </span>
-                  </span>
-
-                  <ArrowUpRight
-                    size={16}
-                    aria-hidden="true"
-                    className="shrink-0 text-[var(--color-text-muted)] transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--color-purple)]"
-                  />
-                </a>
-
-                <a
+                <ContactLinkCard
                   href={contact.links.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group flex items-center gap-4 border border-[var(--color-border)] bg-[var(--color-surface)] p-5 transition-colors duration-200 hover:border-[var(--color-purple)]"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-purple)]/10 text-[var(--color-purple-soft)]"
-                  >
-                    <FaLinkedin size={18} />
-                  </span>
+                  external
+                  icon={<FaLinkedin size={18} />}
+                  label="LinkedIn"
+                  value="Connect with me"
+                />
 
-                  <span className="min-w-0 flex-1">
-                    <span className="block text-xs uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
-                      LinkedIn
-                    </span>
-
-                    <span className="mt-1 block text-sm text-[var(--color-text)]">
-                      Connect with me
-                    </span>
-                  </span>
-
-                  <ArrowUpRight
-                    size={16}
-                    aria-hidden="true"
-                    className="shrink-0 text-[var(--color-text-muted)] transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--color-purple)]"
-                  />
-                </a>
-
-                <a
+                <ContactLinkCard
                   href={contact.links.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group flex items-center gap-4 border border-[var(--color-border)] bg-[var(--color-surface)] p-5 transition-colors duration-200 hover:border-[var(--color-purple)]"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-purple)]/10 text-[var(--color-purple-soft)]"
-                  >
-                    <FaGithub size={18} />
-                  </span>
-
-                  <span className="min-w-0 flex-1">
-                    <span className="block text-xs uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
-                      GitHub
-                    </span>
-
-                    <span className="mt-1 block text-sm text-[var(--color-text)]">
-                      View my code
-                    </span>
-                  </span>
-
-                  <ArrowUpRight
-                    size={16}
-                    aria-hidden="true"
-                    className="shrink-0 text-[var(--color-text-muted)] transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--color-purple)]"
-                  />
-                </a>
+                  external
+                  icon={<FaGithub size={18} />}
+                  label="GitHub"
+                  value="View my code"
+                />
               </div>
 
               {/* Availability */}
@@ -283,15 +220,16 @@ function Contact() {
                   </div>
                 )}
 
-                <button
+                <Button
                   type="submit"
+                  size="lg"
                   disabled={isSubmitting}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius-sm)] bg-[var(--color-purple-button)] px-5 py-3.5 text-sm font-medium text-white transition-colors duration-200 hover:bg-[var(--color-purple-button-hover)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-purple)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+                  className="w-full sm:w-auto"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
 
                   {!isSubmitting && <ArrowRightIcon aria-hidden="true" />}
-                </button>
+                </Button>
               </form>
             </div>
           </div>
@@ -370,6 +308,49 @@ function ArrowRightIcon(props) {
         strokeLinejoin="round"
       />
     </svg>
+  );
+}
+
+function ContactLinkCard({
+  href,
+  external = false,
+  icon,
+  label,
+  value,
+  valueClassName = "",
+}) {
+  return (
+    <a
+      href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noreferrer" : undefined}
+      className="group flex items-center gap-4 border border-[var(--color-border)] bg-[var(--color-surface)] p-5 transition-colors duration-200 hover:border-[var(--color-purple)]"
+    >
+      <span
+        aria-hidden="true"
+        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-purple)]/10 text-[var(--color-purple-soft)]"
+      >
+        {icon}
+      </span>
+
+      <span className="min-w-0 flex-1">
+        <span className="block text-xs uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
+          {label}
+        </span>
+
+        <span
+          className={`mt-1 block text-sm text-[var(--color-text)] ${valueClassName}`}
+        >
+          {value}
+        </span>
+      </span>
+
+      <ArrowUpRight
+        size={16}
+        aria-hidden="true"
+        className="shrink-0 text-[var(--color-text-muted)] transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--color-purple)]"
+      />
+    </a>
   );
 }
 
