@@ -73,7 +73,7 @@ function Work() {
                   aria-pressed={isActive}
                   className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-purple)] ${
                     isActive
-                      ? "border-[var(--color-purple)] bg-[var(--color-purple)] text-white"
+                      ? "border-[var(--color-purple-button)] bg-[var(--color-purple-button)] text-white"
                       : "border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-hover)] hover:text-[var(--color-purple-hover)]"
                   }`}
                 >

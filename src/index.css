@@ -13,17 +13,19 @@
   /* Text */
   --color-text: #f5f5f5;
   --color-text-secondary: #b7b7be;
-  --color-text-muted: #7d7d85;
+  --color-text-muted: #85858d;
 
   /* Brand */
-  --color-purple: #8b5cf6;
+  --color-purple: #9870f8;
   --color-purple-hover: #a78bfa;
   --color-purple-deep: #6d28d9;
   --color-purple-soft: #c4b5fd;
+  --color-purple-button: #6d28d9;
+  --color-purple-button-hover: #7c3aed;
 
   /* Borders */
   --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(139, 92, 246, 0.35);
+  --color-border-hover: rgba(152, 112, 248, 0.35);
 
   /* Layout */
   --container-width: 1280px;

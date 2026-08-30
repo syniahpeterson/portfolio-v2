@@ -286,7 +286,7 @@ function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius-sm)] bg-[var(--color-purple)] px-5 py-3.5 text-sm font-medium text-white transition-colors duration-200 hover:bg-[var(--color-purple-hover)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-purple)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius-sm)] bg-[var(--color-purple-button)] px-5 py-3.5 text-sm font-medium text-white transition-colors duration-200 hover:bg-[var(--color-purple-button-hover)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-purple)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
 

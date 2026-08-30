@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const variants = {
   primary:
-    "bg-[var(--color-purple)] text-white hover:bg-[var(--color-purple-hover)]",
+    "bg-[var(--color-purple-button)] text-white hover:bg-[var(--color-purple-button-hover)]",
 
   secondary:
     "border border-[var(--color-border)] bg-transparent text-[var(--color-text)] hover:border-[var(--color-border-hover)] hover:bg-[var(--color-surface)]",
