@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
 import CaseStudy from "./pages/CaseStudy";
+import NotFound from "./pages/NotFound";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -38,6 +39,8 @@ function App() {
           <Route path="/resume" element={<Resume />} />
 
           <Route path="/contact" element={<Contact />} />
+
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </BrowserRouter>
