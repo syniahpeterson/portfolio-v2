@@ -1,4 +1,5 @@
-import { ArrowUp, GitBranch, Globe } from "lucide-react";
+import { ArrowUp } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 import navigation from "../../data/navigation";
@@ -72,7 +73,7 @@ function Footer() {
                 aria-label="GitHub"
                 className="flex h-11 w-11 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-border)] text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-hover)] hover:text-[var(--color-text)] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--color-purple)]"
               >
-                <GitBranch size={18} aria-hidden="true" />
+                <FaGithub size={18} aria-hidden="true" />
               </a>
 
               <a
@@ -82,7 +83,7 @@ function Footer() {
                 aria-label="LinkedIn"
                 className="flex h-11 w-11 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-border)] text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-hover)] hover:text-[var(--color-text)] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--color-purple)]"
               >
-                <Globe size={18} aria-hidden="true" />
+                <FaLinkedin size={18} aria-hidden="true" />
               </a>
             </div>
 

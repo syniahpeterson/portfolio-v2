@@ -1,4 +1,5 @@
-import { ArrowDown, GitBranch, Globe } from "lucide-react";
+import { ArrowDown } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 import site from "../data/site";
 import Button from "../components/ui/Button";
@@ -40,7 +41,7 @@ function Hero() {
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-purple)]"
               >
-                <GitBranch size={16} aria-hidden="true" />
+                <FaGithub size={16} aria-hidden="true" />
                 GitHub
               </a>
 
@@ -55,7 +56,7 @@ function Hero() {
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-purple)]"
               >
-                <Globe size={16} aria-hidden="true" />
+                <FaLinkedin size={16} aria-hidden="true" />
                 LinkedIn
               </a>
             </div>
