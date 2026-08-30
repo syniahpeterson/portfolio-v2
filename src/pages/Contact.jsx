@@ -31,8 +31,19 @@ function Contact() {
     setStatus("submitting");
 
     try {
-      // Email service integration will be added in the next step.
-      await new Promise((resolve) => setTimeout(resolve, 800));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Unable to send message.");
+      }
 
       setStatus("success");
 
@@ -42,7 +53,8 @@ function Contact() {
         subject: "",
         message: "",
       });
-    } catch {
+    } catch (error) {
+      console.error("Contact form error:", error);
       setStatus("error");
     }
   };
