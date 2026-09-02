@@ -90,7 +90,7 @@ function Footer() {
             <button
               type="button"
               onClick={handleBackToTop}
-              className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-purple-hover)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-purple)]"
+              className="cursor-pointer mt-8 inline-flex items-center gap-2 text-sm font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-purple-hover)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-purple)]"
             >
               Back to top
               <ArrowUp size={16} aria-hidden="true" />

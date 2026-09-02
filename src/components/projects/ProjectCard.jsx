@@ -28,7 +28,7 @@ function ProjectCard({ project, featured = false }) {
 
   return (
     <article
-      className={`group overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-border-hover)] hover:bg-[var(--color-surface-hover)] ${
+      className={`group relative overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-border-hover)] hover:bg-[var(--color-surface-hover)] ${
         featured ? "lg:col-span-2" : ""
       }`}
     >
@@ -90,7 +90,7 @@ function ProjectCard({ project, featured = false }) {
           <ProjectMeta technologies={technologies} />
         </div>
 
-        <div className="mt-7 flex flex-wrap items-center gap-5">
+        <div className="relative z-10 mt-7 flex flex-wrap items-center gap-5">
           <Link
             to={`/work/${slug}`}
             className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-text)] transition-colors hover:text-[var(--color-purple-hover)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-purple)]"
@@ -126,6 +126,14 @@ function ProjectCard({ project, featured = false }) {
           )}
         </div>
       </div>
+
+      {/* Stretched link so the whole card navigates to the case study */}
+      <Link
+        to={`/work/${slug}`}
+        tabIndex={-1}
+        aria-hidden="true"
+        className="absolute inset-0 z-0"
+      />
     </article>
   );
 }
