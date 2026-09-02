@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 
 import Layout from "./components/layout/Layout";
+import Seo from "./components/seo/Seo";
 
 import Home from "./pages/Home";
 import Work from "./pages/Work";
@@ -25,6 +26,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <Seo />
 
       <Layout>
         <Routes>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import navigation from "../../data/navigation";
@@ -9,6 +9,8 @@ import MobileMenu from "./MobileMenu";
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const menuButtonRef = useRef(null);
+  const wasMenuOpenRef = useRef(false);
 
   useEffect(() => {
     function handleScroll() {
@@ -30,6 +32,14 @@ function Navbar() {
     return () => {
       document.body.style.overflow = "";
     };
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    if (wasMenuOpenRef.current && !isMenuOpen) {
+      menuButtonRef.current?.focus();
+    }
+
+    wasMenuOpenRef.current = isMenuOpen;
   }, [isMenuOpen]);
 
   return (
@@ -86,6 +96,7 @@ function Navbar() {
           </div>
 
           <button
+            ref={menuButtonRef}
             type="button"
             onClick={() => setIsMenuOpen(true)}
             aria-label="Open navigation menu"
@@ -106,9 +117,7 @@ function Navbar() {
         </Container>
       </header>
 
-      <div id="mobile-navigation">
-        <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
-      </div>
+      <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </>
   );
 }

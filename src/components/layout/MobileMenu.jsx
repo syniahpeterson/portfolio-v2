@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useEffectEvent, useRef } from "react";
 import { NavLink } from "react-router-dom";
 
 import navigation from "../../data/navigation";
@@ -6,11 +6,51 @@ import Button from "../ui/Button";
 
 function MobileMenu({ isOpen, onClose }) {
   const closeButtonRef = useRef(null);
+  const menuRef = useRef(null);
+  const closeMenu = useEffectEvent(onClose);
 
   useEffect(() => {
-    if (isOpen) {
-      closeButtonRef.current?.focus();
+    if (!isOpen) {
+      return undefined;
     }
+
+    closeButtonRef.current?.focus();
+
+    function handleKeyDown(event) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeMenu();
+        return;
+      }
+
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const focusableElements = menuRef.current?.querySelectorAll(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+
+      if (!focusableElements?.length) {
+        event.preventDefault();
+        return;
+      }
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen]);
 
   if (!isOpen) {
@@ -18,7 +58,14 @@ function MobileMenu({ isOpen, onClose }) {
   }
 
   return (
-    <div className="fixed inset-0 z-50 bg-[var(--color-background)] lg:hidden">
+    <div
+      ref={menuRef}
+      id="mobile-navigation"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile navigation menu"
+      className="fixed inset-0 z-50 bg-[var(--color-background)] lg:hidden"
+    >
       <div className="flex min-h-full flex-col">
         <div className="flex items-center justify-between border-b border-[var(--color-border)] px-6 py-5">
           <span className="font-semibold text-[var(--color-text)]">

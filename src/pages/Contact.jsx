@@ -1,4 +1,4 @@
-import { ArrowUpRight, Check, Mail } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, Mail } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useState } from "react";
 import contact from "../data/contact";
@@ -13,6 +13,7 @@ function Contact() {
     email: "",
     subject: "",
     message: "",
+    website: "",
   });
 
   const [status, setStatus] = useState("idle");
@@ -53,6 +54,7 @@ function Contact() {
         email: "",
         subject: "",
         message: "",
+        website: "",
       });
     } catch (error) {
       console.error("Contact form error:", error);
@@ -169,6 +171,7 @@ function Contact() {
                     onChange={handleChange}
                     required
                     autoComplete="name"
+                    maxLength={100}
                   />
 
                   <FormField
@@ -179,6 +182,7 @@ function Contact() {
                     onChange={handleChange}
                     required
                     autoComplete="email"
+                    maxLength={254}
                   />
                 </div>
 
@@ -189,6 +193,7 @@ function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
+                  maxLength={150}
                 />
 
                 <FormField
@@ -198,7 +203,22 @@ function Contact() {
                   onChange={handleChange}
                   required
                   textarea
+                  minLength={10}
+                  maxLength={5000}
                 />
+
+                <div className="absolute -left-[9999px]" aria-hidden="true">
+                  <label htmlFor="website">Website</label>
+                  <input
+                    id="website"
+                    name="website"
+                    type="text"
+                    value={formData.website}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
 
                 {status === "success" && (
                   <div
@@ -228,7 +248,7 @@ function Contact() {
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
 
-                  {!isSubmitting && <ArrowRightIcon aria-hidden="true" />}
+                  {!isSubmitting && <ArrowRight size={16} aria-hidden="true" />}
                 </Button>
               </form>
             </div>
@@ -248,6 +268,8 @@ function FormField({
   required = false,
   autoComplete,
   textarea = false,
+  minLength,
+  maxLength,
 }) {
   const fieldClasses =
     "mt-2 w-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-text)] outline-none transition-colors duration-200 placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-purple)]";
@@ -273,6 +295,8 @@ function FormField({
           value={value}
           onChange={onChange}
           required={required}
+          minLength={minLength}
+          maxLength={maxLength}
           rows={7}
           className={`${fieldClasses} resize-y`}
         />
@@ -285,29 +309,12 @@ function FormField({
           onChange={onChange}
           required={required}
           autoComplete={autoComplete}
+          minLength={minLength}
+          maxLength={maxLength}
           className={fieldClasses}
         />
       )}
     </div>
-  );
-}
-
-function ArrowRightIcon(props) {
-  return (
-    <svg
-      viewBox="0 0 20 20"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.7"
-      {...props}
-      className="h-4 w-4"
-    >
-      <path
-        d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }
 

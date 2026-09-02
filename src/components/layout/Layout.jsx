@@ -6,7 +6,7 @@ function Layout({ children }) {
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-text)]">
       <Navbar />
 
-      <main>{children}</main>
+      {children}
 
       <Footer />
     </div>

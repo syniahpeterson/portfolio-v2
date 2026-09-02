@@ -1,10 +1,10 @@
+import { siteIdentity } from "./seo";
+
 const site = {
-  name: "Syniah Peterson",
+  ...siteIdentity,
 
-  title: "Web Developer & Web Specialist",
-
-  description:
-    "I build, modernize, and improve responsive websites and web applications with a focus on usability, accessibility, and clean, maintainable code.",
+  // Configure VITE_SITE_URL in the Vercel Production environment.
+  url: import.meta.env.VITE_SITE_URL?.replace(/\/$/, ""),
 
   email: "syniahpeterson@gmail.com",
 

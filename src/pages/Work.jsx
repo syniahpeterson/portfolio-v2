@@ -50,6 +50,7 @@ function Work() {
             eyebrow="Work"
             title="Projects built for real people, real problems, and practical experiences."
             description="Explore client websites, web applications, and concepts I've designed and developed using modern frontend technologies."
+            as="h1"
           />
         </Container>
       </section>

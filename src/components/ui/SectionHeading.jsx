@@ -4,6 +4,7 @@ function SectionHeading({
   title,
   description,
   className = "",
+  as: Heading = "h2",
 }) {
   return (
     <div className={`max-w-3xl ${className}`}>
@@ -14,9 +15,9 @@ function SectionHeading({
         </p>
       )}
 
-      <h2 className="mt-3 text-3xl font-bold tracking-tight text-[var(--color-text)] sm:text-4xl md:text-5xl">
+      <Heading className="mt-3 text-3xl font-bold tracking-tight text-[var(--color-text)] sm:text-4xl md:text-5xl">
         {title}
-      </h2>
+      </Heading>
 
       {description && (
         <p className="mt-5 text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">

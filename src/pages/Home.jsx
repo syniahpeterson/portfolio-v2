@@ -8,7 +8,7 @@ import FinalCTA from "../sections/FinalCTA";
 
 function Home() {
   return (
-    <>
+    <main>
       <Hero />
       <WhatIDo />
       <FeaturedWork />
@@ -16,7 +16,7 @@ function Home() {
       <Skills />
       <AboutPreview />
       <FinalCTA />
-    </>
+    </main>
   );
 }
 
