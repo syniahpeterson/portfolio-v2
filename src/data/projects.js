@@ -124,7 +124,7 @@ const projects = [
     role: "Freelance Web Developer",
     timeline: "August 2023 - September 2025",
 
-    technologies: ["React", "EmailJS", "GitHub Pages"],
+    technologies: ["React", "EmailJS", "Vercel"],
 
     image: secondRunDesktop,
     imageAlt: "Second Run Logistics website displayed on a desktop screen",
@@ -265,7 +265,7 @@ const projects = [
     role: "Web Developer",
     timeline: "June 2026",
 
-    technologies: ["React"],
+    technologies: ["React", "Vercel"],
 
     image: blessBunnyDesktop,
     imageAlt:
@@ -417,6 +417,7 @@ const projects = [
       "JavaScript",
       "CSS",
       "Stripe",
+      "Vercel",
     ],
 
     image: nicholeBeautyDesktop,
