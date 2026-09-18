@@ -49,7 +49,7 @@ export default async function handler(req, res) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: "Portfolio Contact <onboarding@resend.dev>",
+      from: "Portfolio Contact <contact@syniahpeterson.dev>",
       to: [process.env.CONTACT_EMAIL],
       replyTo: email,
       subject: `Portfolio Contact: ${subject}`,
@@ -60,7 +60,7 @@ Subject: ${subject}
 
 Message:
 ${message}
-      `,
+  `,
     });
 
     if (error) {
