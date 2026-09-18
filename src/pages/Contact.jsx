@@ -17,6 +17,7 @@ function Contact() {
   });
 
   const [status, setStatus] = useState("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -27,8 +28,29 @@ function Contact() {
     }));
   };
 
+  const validate = () => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!formData.name.trim()) return "Please enter your name.";
+    if (!emailPattern.test(formData.email.trim()))
+      return "Please enter a valid email address.";
+    if (!formData.subject.trim()) return "Please enter a subject.";
+    if (formData.message.trim().length < 10)
+      return "Message must be at least 10 characters long.";
+
+    return "";
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const validationError = validate();
+
+    if (validationError) {
+      setErrorMessage(validationError);
+      setStatus("error");
+      return;
+    }
 
     setStatus("submitting");
 
@@ -41,13 +63,22 @@ function Contact() {
         body: JSON.stringify(formData),
       });
 
-      const result = await response.json();
+      let result;
+
+      try {
+        result = await response.json();
+      } catch {
+        throw new Error(
+          "No response from the contact API. If you're running locally, use `vercel dev` instead of `vite` so /api routes are served."
+        );
+      }
 
       if (!response.ok || !result.success) {
         throw new Error(result.message || "Unable to send message.");
       }
 
       setStatus("success");
+      setErrorMessage("");
 
       setFormData({
         name: "",
@@ -58,6 +89,7 @@ function Contact() {
       });
     } catch (error) {
       console.error("Contact form error:", error);
+      setErrorMessage(error.message || "Something went wrong.");
       setStatus("error");
     }
   };
@@ -235,8 +267,8 @@ function Contact() {
                     role="alert"
                     className="border border-red-400/30 bg-red-400/10 p-4 text-sm leading-6 text-[var(--color-text-secondary)]"
                   >
-                    Something went wrong while sending your message. Please try
-                    again or contact me directly by email.
+                    {errorMessage ||
+                      "Something went wrong while sending your message. Please try again or contact me directly by email."}
                   </div>
                 )}
 
