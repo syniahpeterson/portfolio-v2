@@ -69,7 +69,7 @@ function Contact() {
         result = await response.json();
       } catch {
         throw new Error(
-          "No response from the contact API. If you're running locally, use `vercel dev` instead of `vite` so /api routes are served."
+          "No response from the contact API. If you're running locally, use `vercel dev` instead of `vite` so /api routes are served.",
         );
       }
 
